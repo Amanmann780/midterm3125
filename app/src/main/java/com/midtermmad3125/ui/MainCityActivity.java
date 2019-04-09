@@ -14,14 +14,32 @@ import com.midtermmad3125.utils.ReadJSONUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+import com.midtermmad3125.R;
+import com.midtermmad3125.utils.ReadJSONUtils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
+
 
 public class MainCityActivity extends AppCompatActivity
 {
+    private static final String TAG = ;
+
     public void parseJson() {
     Log.e(TAG,"Into Parse JSon"
             String JsonString = ReadJSONUtils.loadJSONFromAsset(this, "moscow_weather.json");
     if (!JSONStringer.is Empty() )
-        
+
         try {
             JSONObject mJsonWeather = new JSONObject(jsonString);
             //City Data
