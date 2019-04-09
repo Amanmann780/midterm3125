@@ -1,61 +1,36 @@
 package com.midtermmad3125.ui;
 
-import android.content.Intent;
-import android.nfc.Tag;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.WindowManager;
 
-import com.midtermmad3125.R;
 import com.midtermmad3125.utils.ReadJSONUtils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-
-import com.midtermmad3125.R;
-import com.midtermmad3125.utils.ReadJSONUtils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-
 
 
 public class MainCityActivity extends AppCompatActivity
 {
     private static final String TAG = ;
 
-    public void parseJson() {
-    Log.e(TAG,"Into Parse JSon"
+    private void parseJson(String JsonString) {
+        Log.e(TAG,"Into Parse JSon"
             String JsonString = ReadJSONUtils.loadJSONFromAsset(this, "moscow_weather.json");
     if (!JSONStringer.is Empty() )
 
         try {
             JSONObject mJsonWeather = new JSONObject(jsonString);
-            //City Data
-            JSONObject mCity = mJsonWeather.getJSONObject("city");
-            //Data of City
-            int id = mCity.getInt("id");
+            JSONObject mcity = mJsonWeather.getJSONObject("city");
+            int id = mcity.getInt("id");
             Log.e(TAG, id + "");
-            String name = mCity.getString("name");
-            //Data of City Coord
-            JSONObject mCoord = mCity.getJSONObject("cord");
+            String name = mcity.getString("name");
+            JSONObject mCoord = mcity.getJSONObject("cord");
             String lon = mCoord.getString("lon");
             String lat = mCoord.getString("lat");
             Log.e(TAG, lat + "");
-            //Data of City
-            String country = mCity.getString("country");
-            int population = mCity.getInt("population");
+            String country = mcity.getString("country");
+            int population = mcity.getInt("population");
             int mCnt = mJsonWeather.getInt("cnt");
             JSONArray mListArray = mJsonWeather.getJSONArray("list");
             for(int i=0;i<mListArray.length();i++) {
@@ -87,8 +62,6 @@ public class MainCityActivity extends AppCompatActivity
                 int clouds = mJsonObjectList.getInt("clouds");
                 Log.e(TAG,clouds +"clouds");
 
-                //String rain = mJsonObjectList.getString(“rain”);
-                //Log.e(TAG,rain +“clouds”);
 
 
             }
