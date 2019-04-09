@@ -14,6 +14,15 @@ public class city extends AppCompatActivity {
         private  String population;
 
 
+        public City(int id, String name, String lon, String lat, String country, int population) {
+            this.id = id;
+            this.name = name;
+            this.lon = lon;
+            this.lat = lat;
+            this.country = country;
+            this.population = population;
+        }
+
 
 
 
